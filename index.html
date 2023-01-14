@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<!--    Imports-->
+    <script src="modal-main.js"></script>
+
+    <link rel="stylesheet" href="modal-main.css">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn-modal-0" onclick="showModalExample()">Mostrar alerta simples</button>
+</body>
+
+<script>
+    function showModalExample(){
+        let buttons = [
+            {
+                title: "Salvar",
+                type: "success",
+                clicked: function (){
+                    //Func para deletar
+                    alert("Deletado")
+                }
+            },
+            {
+                title: "Cancelar",
+                type: "cancel"
+            },
+
+        ]
+
+        modal = new modalMain()
+        modal.title = "Deletar item"
+        modal.buttons = buttons
+        modal.alertMessage("Tem certeza que deseja deletar esse item?")
+        modal.create()
+    }
+</script>
+
+</html>
