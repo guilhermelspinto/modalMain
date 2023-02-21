@@ -95,6 +95,18 @@
     height: 40px;
 }
 
+/* Table Itens */
+.modal-main-table-itens{
+    display: flex;
+    position: relative;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.modal-main-table-itens .modal-main-table-item{
+    display: block;
+}
+
 /*message*/
 .modal-main-message{
     padding: 10px;

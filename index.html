@@ -34,10 +34,16 @@
 
         ]
 
+        let dataTable = [
+                "template 1",
+                "template 2",
+                "template 3"        
+        ]
+
         modal = new modalMain()
         modal.title = "Deletar item"
         modal.buttons = buttons
-        modal.alertMessage("Tem certeza que deseja deletar esse item?")
+        modal.multipleTemplate(dataTable)
         modal.create()
     }
 </script>

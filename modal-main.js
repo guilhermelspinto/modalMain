@@ -6,11 +6,54 @@ class modalMainTemplates {
         </div>
         `
     }
+
+    tableItem(data) {
+
+        if(typeof data != "object"){
+            throw new Error('function tableItem\'s param must be an array');
+            this.error = "function tableItem\'s param must be an array"
+            return
+        }
+
+        let template = `
+        <div class="modal-main-table-itens">`
+
+        data.map(function(e){
+            template += `
+            <div class="modal-main-table-item">
+                <span>${e.title}</span>
+                <span>${e.data}</span>
+            </div>`
+        })
+
+        template += `</div>`
+
+         this.body = template
+    }
+
+    multipleTemplate(templateArr) {
+
+        if(typeof templateArr != "object"){
+            throw new Error('function multipleTemplate\'s param must be an array');
+            this.error = "function multipleTemplate\'s param must be an array"
+            return
+        }
+
+        let template = ``
+
+        templateArr.map(function(e){
+            template += e
+        })
+
+        this.body = template
+    }
 }
 
 class modalMain extends modalMainTemplates {
 
     target = document.querySelector("body")
+
+    error = ""
 
     template = ""
     title = ""
