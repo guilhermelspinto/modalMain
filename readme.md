@@ -100,7 +100,7 @@ Você pode adicionar botões personalizados ao modal utilizando a propriedade `b
 ```javascript
 modal.buttons = [
   {
-    type: "primary",
+    type: "success",
     title: "Salvar",
     clicked: () => {
       // Lógica para salvar os dados
@@ -111,7 +111,7 @@ modal.buttons = [
     ]
   },
   {
-    type: "secondary",
+    type: "cancel",
     title: "Cancelar",
     clicked: () => {
       // Lógica para cancelar
@@ -141,14 +141,14 @@ modal.alertMessage("Este é um exemplo de mensagem.");
 
 modal.buttons = [
   {
-    type: "primary",
+    type: "success",
     title: "Salvar",
     clicked: () => {
       // Lógica para salvar os dados
     }
   },
   {
-    type: "secondary",
+    type: "info",
     title: "Cancelar",
     clicked: () => {
       // Lógica para cancelar
