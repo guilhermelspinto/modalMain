@@ -16,18 +16,31 @@
     top: 0;
     left: 0;
     background: #5555;
-    z-index: 20;
+    z-index: 999;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(10px);
 }
 
 .modal-main{
-    width: 768px;
-    height: fit-content;
+    position: relative;
+    display: block;
     background: #fff;
     overflow: hidden;
     border-radius: 5px;
+    width: 768px;
+    min-width: 500px;
+    min-height: 150px;
+    max-height: 80%;
+    height: fit-content;
+}
+
+.modal-main .modal-main-container{
+    position: relative;
+    display: block;
+    height: auto;
+    overflow-y: scroll;
+    max-height: calc(100% - 91px);
 }
 
 .modal-main header{
@@ -77,6 +90,12 @@
     color: #fff;
 }
 
+
+.modal-main .buttons-container button.info{
+    background: var(--color-blue);
+    color: #fff;
+}
+
 .modal-main .buttons-container button.error{
     background: var(--color-red);
     color: #fff;
@@ -120,6 +139,7 @@
 
 @media (max-width: 800px){
 	.modal-main{
+		min-width: 90%;
 	    	width: 100%;
 		margin: 0 20px;
 	}
