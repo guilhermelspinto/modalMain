@@ -182,7 +182,3 @@ O ModalMain Framework é um projeto de código aberto e as contribuições são 
 ## Licença
 
 O ModalMain Framework é distribuído sob a licença MIT. Consulte o arquivo `LICENSE` para obter mais informações.
-
----
-
-Esse README.md fornece uma visão geral do ModalMain Framework, incluindo suas funcionalidades, requisitos de instalação, exemplos de uso, guia de contribuição e informações de licença.
