@@ -122,10 +122,26 @@ modal.buttons = [
 
 ### Fechando o Modal
 
-O modal pode ser fechado clicando no botão de fechar ou clicando fora da área do modal. Você pode definir se o modal deve ser fechado ao clicar fora da área usando o método `setCloseOnClick()` da classe `ModalMain`.
+O modal pode ser fechado clicando no botão de fechar ou clicando nos botões que foram criados. Você pode definir se o modal deve ser fechado ao clicar em um botão criado usando a função `setCloseOnClick()`, o padrão é true e não precisa ser configurado.
 
 ```javascript
 modal.setCloseOnClick(true);
+```
+
+Caso defina `setCloseOnClick(false)` ao clicar nos botões configurados o modal não ira fechar e precisa ser chamado a função `close()`.
+
+```javascript
+const modal = new ModalMain()
+modal.buttons = [
+  {
+    type: "success",
+    title: "Salvar",
+    clicked: () => {
+      // Lógica para salvar os dados
+      modal.close()
+    }
+  }
+];
 ```
 
 ### Exemplo Completo
@@ -155,8 +171,6 @@ modal.buttons = [
     }
   }
 ];
-
-modal.setCloseOnClick(true);
 
 modal.create();
 ```
