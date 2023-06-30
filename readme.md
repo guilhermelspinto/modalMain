@@ -12,26 +12,26 @@ O ModalMain Framework é uma biblioteca JavaScript para criar modais personaliza
 
 ## Instalação
 
-1. Inclua o arquivo `modalmain.css` no cabeçalho do seu documento HTML:
+1. Inclua o arquivo `modal-main.css` no cabeçalho do seu documento HTML:
 
 ```html
-<link rel="stylesheet" href="modalmain.css">
+<link rel="stylesheet" href="modal-main.css">
 ```
 
-2. Inclua o arquivo `modalmain.js` no final do corpo do seu documento HTML:
+2. Inclua o arquivo `modal-main.js` no final do corpo do seu documento HTML:
 
 ```html
-<script src="modalmain.js"></script>
+<script src="modal-main.js"></script>
 ```
 
 ## Uso
 
 ### Criando um Modal
 
-Para criar um modal, você deve instanciar a classe `ModalMain` e configurar suas propriedades e conteúdo. Em seguida, chame o método `create()` para exibir o modal.
+Para criar um modal, você deve instanciar a classe `` e configurar suas propriedades e conteúdo. Em seguida, chame o método `create()` para exibir o modal.
 
 ```javascript
-const modal = new ModalMain();
+const modal = new ();
 
 // Configurar propriedades e conteúdo do modal
 
@@ -40,7 +40,7 @@ modal.create();
 
 ### Configurando o Título do Modal
 
-Você pode definir o título do modal utilizando a propriedade `title` da classe `ModalMain`. O título será exibido no cabeçalho do modal.
+Você pode definir o título do modal utilizando a propriedade `title` da classe ``. O título será exibido no cabeçalho do modal.
 
 ```javascript
 modal.title = "Meu Modal";
@@ -48,7 +48,7 @@ modal.title = "Meu Modal";
 
 ### Adicionando Conteúdo ao Modal
 
-Existem diferentes métodos na classe `ModalMainTemplates` para adicionar conteúdo ao modal:
+Existem diferentes métodos na classe `Templates` para adicionar conteúdo ao modal:
 
 - `alertMessage(template)`: Adiciona uma mensagem ao modal.
 
