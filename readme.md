@@ -124,14 +124,14 @@ modal.buttons = [
 
 O modal pode ser fechado clicando no botão de fechar ou clicando nos botões que foram criados. Você pode definir se o modal deve ser fechado ao clicar em um botão criado usando a função `setCloseOnClick()`, o padrão é true e não precisa ser configurado.
 
-```javascript
-modal.setCloseOnClick(true);
-```
-
 Caso defina `setCloseOnClick(false)` ao clicar nos botões configurados o modal não ira fechar e precisa ser chamado a função `close()`.
 
 ```javascript
+
 const modal = new ModalMain()
+
+modal.setCloseOnClick(false);
+
 modal.buttons = [
   {
     type: "success",
