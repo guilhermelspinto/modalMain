@@ -7,7 +7,6 @@ O ModalMain Framework é uma biblioteca JavaScript para criar modais personaliza
 - Criação de modais personalizados.
 - Suporte para diferentes tipos de conteúdo, como mensagens, tabelas e múltiplos templates.
 - Possibilidade de adicionar botões personalizados aos modais.
-- Opção de fechar o modal ao clicar fora da área ou em um botão específico.
 - Animações de fade in e fade out para exibição e fechamento do modal.
 - Ajuste automático de altura do conteúdo do modal.
 
