@@ -163,7 +163,7 @@ modal.create();
 
 ## Contribuição
 
-O ModalMain Framework é um projeto de código aberto e as contribuições são bem-vindas. Se você tiver alguma sugestão, correção de bugs ou melhorias, sinta-se à vontade para abrir uma **[issue](https://github.com/seu-usuario/modalmain-framework/issues)** ou enviar um **[pull request](https://github.com/seu-usuario/modalmain-framework/pulls)**.
+O ModalMain Framework é um projeto de código aberto e as contribuições são bem-vindas. Se você tiver alguma sugestão, correção de bugs ou melhorias, sinta-se à vontade para abrir uma **[issue](https://github.com/guilhermelspinto/modalMain/issues)** ou enviar um **[pull request](https://github.com/guilhermelspinto/modalMain/pulls)**.
 
 ## Licença
 
