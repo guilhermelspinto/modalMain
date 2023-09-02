@@ -54,9 +54,10 @@ class ModalMain extends ModalMainTemplates {
         this.title = "";
         this.templateNode = "";
         this.buttons = null;
+        this.headButtons = null;
     }
 
-    create() {
+    create(callback) {
         const templateCreate = `
       <div class="modal-main modal-opacity-opacity-0">
         <header>
@@ -84,8 +85,13 @@ class ModalMain extends ModalMainTemplates {
         }
 
         this.setButtons();
+        this.setHeadButtons();
 
         this.show(this.templateNode);
+
+        if (callback && typeof callback === "function") {
+            callback();
+        }
     }
 
     setButtons() {
@@ -106,12 +112,12 @@ class ModalMain extends ModalMainTemplates {
             buttonNode.innerHTML = title;
 
             if (attr) {
-                if (attr.length === 1) {
-                    buttonNode.setAttribute(attr.key, attr.value);
-                } else if (attr.length > 1) {
+                if(Array.isArray(attr)){
                     attr.forEach(({key, value}) => {
                         buttonNode.setAttribute(key, value);
                     });
+                }else if(typeof attr == 'object'){
+                    buttonNode.setAttribute(attr.key, attr.value);
                 }
             }
 
@@ -126,6 +132,7 @@ class ModalMain extends ModalMainTemplates {
                 if (typeof clicked === "function") {
                     clicked();
                 }
+
                 if (this.closeOnClick) {
                     this.close(event);
                 }
@@ -155,6 +162,72 @@ class ModalMain extends ModalMainTemplates {
         });
     }
 
+    setHeadButtons() {
+        if(typeof this.headButtons !== 'object' || this.headButtons === null) return
+        const buttonsContainer = document.createElement("div");
+        buttonsContainer.classList.add("buttons-head-container");
+        buttonsContainer.classList.add("hidden-button-container");
+    
+        const buttonsListHeadContainer = document.createElement("div");
+        buttonsListHeadContainer.classList.add("buttons-list-head-container");
+    
+        // Create the span element and set its innerHTML to &#8942;
+        const spanElement = document.createElement("span");
+        spanElement.innerHTML = "&#8942;";
+
+        spanElement.addEventListener('click', function(){
+            buttonsContainer.classList.toggle('hidden-button-container'); 
+        })
+        
+        // Append the span element to buttonsListHeadContainer
+        buttonsListHeadContainer.appendChild(spanElement);
+    
+        const header = this.templateNode.querySelector(".modal-main header");
+        const closeContainer = this.templateNode.querySelector(".modal-main header .close-modal-container");
+    
+        // Insert buttonsListHeadContainer right before closeContainer
+        header.insertBefore(buttonsListHeadContainer, closeContainer);
+        
+        // Append buttonsContainer to buttonsListHeadContainer
+        buttonsListHeadContainer.appendChild(buttonsContainer);
+    
+        const buttons = this.headButtons;
+    
+        buttons.forEach(({type, title, clicked, attr}) => {
+            const buttonNode = document.createElement("button");
+            buttonNode.classList.add(type);
+            buttonNode.innerHTML = title;
+    
+            if (attr) {
+                if(Array.isArray(attr)){
+                    attr.forEach(({key, value}) => {
+                        buttonNode.setAttribute(key, value);
+                    });
+                } else if (typeof attr == 'object') {
+                    buttonNode.setAttribute(attr.key, attr.value);
+                }
+            }
+    
+            buttonsContainer.appendChild(buttonNode);
+        });
+    
+        buttonsContainer.addEventListener("click", (event) => {
+            const button = event.target.closest("button");
+            if (button) {
+                const buttonIndex = Array.from(buttonsContainer.children).indexOf(button);
+                const {clicked} = buttons[buttonIndex];
+                if (typeof clicked === "function") {
+                    clicked();
+                }
+    
+                if (this.closeOnClick) {
+                    this.close(event);
+                }
+            }
+        });
+    }
+    
+
     show(template) {
 
         template.querySelector(".close-modal-container").addEventListener("click", this.close.bind(this));
@@ -166,15 +239,21 @@ class ModalMain extends ModalMainTemplates {
 
     }
 
-    close(event) {
-        const closeButton = event.target;
-        const modal = closeButton.closest(".modal-main");
-
+    close(event = null) {
+        let modal;
+        if (event) {
+            const closeButton = event.target;
+            modal = closeButton.closest(".modal-main");
+        } else {
+            modal = this.target.querySelector(".modal-main");
+        }
+    
         if (modal) {
             const boxShadow = modal.parentNode;
             fade(boxShadow);
         }
     }
+    
 
     setCloseOnClick(closeOnClick) {
         this.closeOnClick = closeOnClick
@@ -222,5 +301,8 @@ function adjustHeight(template) {
 
     if (bodyContainerHeight > bodyMaxHeight) {
         template.querySelector(".modal-main .modal-main-container").style.height = `${bodyMaxHeight}px`;
+    }
+    if(typeof this.headButtons !== 'object' || this.headButtons === null){
+        template.querySelector(".modal-main header .buttons-list-head-container .buttons-head-container").style.top = `${headHeight - 1}px`;
     }
 }
