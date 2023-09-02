@@ -104,6 +104,7 @@
     flex: 100%;
     text-align: center;
     padding: 4px 0;
+    border: none;
     border-bottom: solid 1px #ddd;
     font-size: 14px;
     font-weight: 400;

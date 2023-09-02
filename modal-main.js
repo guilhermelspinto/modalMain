@@ -44,11 +44,18 @@ class ModalMainTemplates {
     }
 }
 
+class ModalMainStyles{
+    constructor(style = "default"){
+        this.style = style
+    }
+}
+
 
 class ModalMain extends ModalMainTemplates {
     constructor() {
         super();
         this.target = document.querySelector("body");
+        this.style = new ModalMainStyles()
         this.template = "";
         this.closeOnClick = true;
         this.title = "";

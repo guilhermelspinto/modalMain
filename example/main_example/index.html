@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./../../modal-main.css">
+
+    <title>ModalMain Example</title>
+</head>
+
+<body>
+    <h1>ModalMain Example</h1>
+
+    <button class="create">Create</button>
+</body>
+<script src="./../../modal-main.js"></script>
+
+<script>
+    let button = document.querySelector(".create")
+    button.addEventListener("click", function () {
+        let modal = new ModalMain()
+
+        modal.setCloseOnClick(false)
+
+        modal.title = "Titulo do modal"
+
+        modal.buttons = [
+            {
+                "title": "Click me!",
+                "type": "success",
+                clicked() {
+                    alert("Modal button clicked!")
+                }
+            },
+            {
+                "title": "Close",
+                clicked() {
+                    modal.close()
+                }
+            }
+        ]
+
+        modal.headButtons = [
+        {
+            "title": "Head Click me!",
+            "type": "success",
+            clicked() {
+                alert("Modal button clicked!")
+            }
+        },
+        {
+            "title": "Head Close",
+            clicked() {
+                modal.close()
+            }
+        }
+    ]
+
+        let template = `O ModalMain Framework é uma biblioteca JavaScript para criar modais personalizados em páginas da web.</br></br>Ele fornece uma estrutura flexível e fácil de usar para criar e exibir modais com diferentes tipos dae conteúdo.`
+
+        modal.alertMessage(template)
+        modal.create()
+    })
+</script>
+
+</html>
